@@ -14,6 +14,11 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] ESLint configuration
 - [x] Memory bank documentation
 - [x] Recipe system for common features
+- [x] School Attendance System built with Drizzle + SQLite
+  - Teachers CRUD (add, edit, delete)
+  - Attendance recording (date, day, time, status per teacher)
+  - Reports with weekly/monthly/yearly best teacher rankings
+  - Dashboard with today's stats and quick actions
 
 ## Current Structure
 
