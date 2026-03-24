@@ -19,6 +19,7 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
   - Attendance recording (date, day, time, status per teacher)
   - Reports with weekly/monthly/yearly best teacher rankings
   - Dashboard with today's stats and quick actions
+- [x] Fixed Netlify build failure: DB client now lazily initialized via `getDb()` instead of at module scope
 
 ## Current Structure
 
@@ -90,3 +91,4 @@ export async function GET() {
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-03-24 | Fixed Netlify build failure: replaced module-scope `db` export with lazy `getDb()` factory in `src/db/index.ts`; updated all consumers (API routes, page components, migrate.ts) |
