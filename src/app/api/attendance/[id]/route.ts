@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { attendance } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params;
+    const db = getDb();
 
     const deleted = await db
       .delete(attendance)

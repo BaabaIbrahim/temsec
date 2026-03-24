@@ -1,9 +1,10 @@
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { teachers, attendance } from "@/db/schema";
 import { eq, and } from "drizzle-orm";
 import AttendanceClient from "./AttendanceClient";
 
 export default async function AttendancePage() {
+  const db = getDb();
   const allTeachers = await db.select().from(teachers).orderBy(teachers.name);
 
   // Get today's attendance

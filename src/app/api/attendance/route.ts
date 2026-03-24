@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { attendance, teachers } from "@/db/schema";
 import { eq, and, gte, lte } from "drizzle-orm";
 
 export async function GET(request: Request) {
   try {
+    const db = getDb();
     const { searchParams } = new URL(request.url);
     const startDate = searchParams.get("startDate");
     const endDate = searchParams.get("endDate");
@@ -45,6 +46,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
+    const db = getDb();
     const body = await request.json();
     const { teacherId, date, arrivalTime, status } = body;
 

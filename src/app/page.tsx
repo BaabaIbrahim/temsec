@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { teachers, attendance } from "@/db/schema";
 import { gte, lte, and, eq } from "drizzle-orm";
 
 export default async function HomePage() {
+  const db = getDb();
   const allTeachers = await db.select().from(teachers);
 
   // Get today's date

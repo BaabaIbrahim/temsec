@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { attendance, teachers } from "@/db/schema";
 import { and, gte, lte } from "drizzle-orm";
 
 export async function GET(request: Request) {
   try {
+    const db = getDb();
     const { searchParams } = new URL(request.url);
     const period = searchParams.get("period") || "week"; // week, month, year
     const referenceDate = searchParams.get("date") || new Date().toISOString().split("T")[0];

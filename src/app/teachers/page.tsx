@@ -1,8 +1,9 @@
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { teachers } from "@/db/schema";
 import TeachersClient from "./TeachersClient";
 
 export default async function TeachersPage() {
+  const db = getDb();
   const allTeachers = await db.select().from(teachers).orderBy(teachers.name);
 
   return (
